@@ -1,11 +1,21 @@
 #include "../include/RadixSort.h"
 
 
+/**
+ * Computes the base 10 logarithm of a number.
+ * @param x The number to compute the log for.
+ * @return The logarithm base 10 of x.
+ */
 inline double logBase10(double x) {
     return log(x) / log(10);
 }
 
 
+/**
+ * Calculates 10 raised to the power of 'n'.
+ * @param n The power to which 10 is raised.
+ * @return The result of 10^n.
+ */
 inline int powerOfTen(int n) {
     int result = 1;
     for (int i = 0; i < n; ++i) {
@@ -15,6 +25,9 @@ inline int powerOfTen(int n) {
 }
 
 
+/**
+ * Sorts the elements using the Radix Sort algorithm.
+ */
 template<typename T>
 void RadixSort<T>::sort() {
     int maxDigitCount = getMaxDigitCount();
@@ -27,6 +40,10 @@ void RadixSort<T>::sort() {
 }
 
 
+/**
+ * Determines the maximum number of digits in any element.
+ * @return The maximum number of digits found.
+ */
 template<typename T>
 int RadixSort<T>::getMaxDigitCount() {
     int maxDigits = 0;
@@ -41,6 +58,11 @@ int RadixSort<T>::getMaxDigitCount() {
 }
 
 
+/**
+ * Counts the number of digits in an integer.
+ * @param number The integer to count digits of.
+ * @return The number of digits in 'number'.
+ */
 template<typename T>
 int RadixSort<T>::getDigitCount(int number) {
     if (number == 0) return 1;
@@ -48,6 +70,10 @@ int RadixSort<T>::getDigitCount(int number) {
 }
 
 
+/**
+ * Performs counting sort on the digits at the specified place value.
+ * @param digit The current digit index to perform the counting sort on.
+ */
 template<typename T>
 void RadixSort<T>::countingSort(int digit) {
     std::vector<T> output(elements_.size());
@@ -82,6 +108,12 @@ void RadixSort<T>::countingSort(int digit) {
 }
 
 
+/**
+ * Retrieves the value of the digit at the specified place value in 'number'.
+ * @param number The number to extract the digit from.
+ * @param digit The digit's place value index.
+ * @return The digit at the specified place value in 'number'.
+ */
 template<typename T>
 int RadixSort<T>::getDigitValue(int number, int digit) {
     return (number / powerOfTen(digit)) % 10;
