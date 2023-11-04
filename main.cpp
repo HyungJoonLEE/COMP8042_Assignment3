@@ -5,7 +5,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "tests/MergeSortTests.h"
-//#include "tests/RadixSortTests.h"
+#include "tests/RadixSortTests.h"
 //#include "tests/LibraryRestructuringTests.h"
 #include "include/LExceptions.h"
 /*
@@ -23,8 +23,8 @@ int main(int argc, char* argv[]) {
         case 0: // Testing Assignment 2:
             std::cout << ">> MergeSort:\t\t\t\t\t\t";
             mergeSortTests();
-//            std::cout << ">> RadixSort:\t\t\t\t\t\t";
-//            radixSortTests();
+            std::cout << ">> RadixSort:\t\t\t\t\t\t";
+            radixSortTests();
 //            std::cout << ">> Library Restructuring System: \t";
 //            libraryRestructuringTests();
             break;
