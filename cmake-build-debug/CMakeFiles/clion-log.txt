@@ -1,0 +1,4 @@
+/usr/local/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -DCMAKE_C_COMPILER=/usr/local/Cellar/gcc/13.2.0/bin/gcc-13 -DCMAKE_CXX_COMPILER=/usr/local/Cellar/gcc/13.2.0/bin/g++-13 -G Ninja -S "/Users/klaiden/Library/Mobile Documents/com~apple~CloudDocs/BTECH/term7/COMP8042 Algorithm Analysis/assignment/A3" -B "/Users/klaiden/Library/Mobile Documents/com~apple~CloudDocs/BTECH/term7/COMP8042 Algorithm Analysis/assignment/A3/cmake-build-debug"
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/klaiden/Library/Mobile Documents/com~apple~CloudDocs/BTECH/term7/COMP8042 Algorithm Analysis/assignment/A3/cmake-build-debug
