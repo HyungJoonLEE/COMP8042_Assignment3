@@ -49,10 +49,10 @@ std::vector<std::vector<std::string>> LibraryRestructuring::clusterAndSort(const
     }
 
     // Sort clusters by average borrowing time
-    RadixSort<std::vector<std::string>> radixSort(clusters, [this](const std::vector<std::string>& cluster) {
+    RadixSort<std::vector<std::string>> rSort(clusters, [this](const std::vector<std::string>& cluster) {
         return getAverageBorrowingTime(cluster);
     });
-    radixSort.sort();
+    rSort.sort();
 
 //    MergeSort<std::vector<std::string>> sortTime([this](const std::vector<std::string>& a, const std::vector<std::string>& b) {
 //        return getAverageBorrowingTime(a) < getAverageBorrowingTime(b);
@@ -64,13 +64,23 @@ std::vector<std::vector<std::string>> LibraryRestructuring::clusterAndSort(const
         // Sort logic based on 'sortBy' (title, author, yearPublished)
         // Example for sorting by title
         if (sortBy == "title") {
-            MergeSort<std::string> sorter([this](const std::string& a, const std::string& b) {
+            MergeSort<std::string> titleSort([this](const std::string& a, const std::string& b) {
                 return allBooks[a].title < allBooks[b].title;
             });
-
-            sorter.sort(cluster);
+            titleSort.sort(cluster);
         }
-        // Similar sorting logic for 'author' and 'yearPublished'
+        if (sortBy == "author") {
+            MergeSort<std::string> authorSort([this](const std::string& a, const std::string& b) {
+                return allBooks[a].author < allBooks[b].author;
+            });
+            authorSort.sort(cluster);
+        }
+        if (sortBy == "yearPublished") {
+            MergeSort<std::string> yearPublishedSort([this](const std::string& a, const std::string& b) {
+                return allBooks[a].yearPublished < allBooks[b].yearPublished;
+            });
+            yearPublishedSort.sort(cluster);
+        }
     }
 
     return clusters;
