@@ -1,5 +1,4 @@
 #include "../include/LibraryRestructuring.h"
-#include "../include/UnorderedSet.h"
 
 
 LibraryRestructuring::LibraryRestructuring(const UnorderedSet<BorrowRecord> &records,
